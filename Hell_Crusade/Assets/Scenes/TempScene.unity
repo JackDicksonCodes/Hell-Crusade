@@ -192,7 +192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_Name
-      value: SoldierWalk
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_RootOrder
