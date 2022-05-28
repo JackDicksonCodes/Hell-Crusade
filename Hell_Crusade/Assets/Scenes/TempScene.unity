@@ -2090,7 +2090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1603257977}
-  speed: 0
+  dashSpeed: 20
+  dashCooldown: 1
 --- !u!50 &969580849
 Rigidbody2D:
   serializedVersion: 4
@@ -4964,7 +4965,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.971114
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
