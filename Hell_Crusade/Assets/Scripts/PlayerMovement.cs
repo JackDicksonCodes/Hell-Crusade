@@ -37,10 +37,9 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mouse = cam.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(speed);
-        Debug.Log(dashCounter);
+    
 
-
+    //This is the dash ability
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
@@ -49,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
             dashCounter = dashLength;
             }
         }
+        //dash duration counter
         if (dashCounter > 0){
                 dashCounter -= Time.deltaTime;
                 if (dashCounter <= 0)
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
                 dashCoolCounter -= Time.deltaTime;
             }
 
-
+        //Sprint
         if(Input.GetKey(KeyCode.LeftShift)){
             speed = 7.0f;
         }
