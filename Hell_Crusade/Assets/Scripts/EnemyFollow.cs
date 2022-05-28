@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-
-    public float speed;
-
-    private Transform playerPosition;
-
+    
+    public Transform playerPosition;
+    UnityEngine.AI.NavMeshAgent agent;
 
     // void Awake(){
     //     playerPosition = GameObject.FindGameObjectWithTag("Player").Transform;
@@ -16,8 +14,11 @@ public class EnemyFollow : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+    {   
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
     }
 
     // Update is called once per frame
@@ -25,7 +26,11 @@ public class EnemyFollow : MonoBehaviour
     {
         // if(Vector2.Distance(transform.position, playerPosition.position) > 0.25f)
         // transform.position = Vector2.MoveTowards(transform, playerPosition, speed * Time.deltaTime);
-
-        transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speed *Time.deltaTime);
+        agent.destination = playerPosition.position;
+        // transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, speed *Time.deltaTime);
     }
+
+  
+        
+    
 }
