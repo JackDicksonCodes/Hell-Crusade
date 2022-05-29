@@ -2377,6 +2377,8 @@ MonoBehaviour:
   cam: {fileID: 1603257977}
   dashSpeed: 20
   dashCooldown: 1
+  animator: {fileID: 969580858}
+  speed: 0
 --- !u!50 &969580849
 Rigidbody2D:
   serializedVersion: 4
@@ -2449,6 +2451,11 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   healthBar: {fileID: 132899736}
+--- !u!95 &969580858 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9574522, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+  m_PrefabInstance: {fileID: 1072200214}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1072200214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2516,6 +2523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9574522, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 43e2209048ce244f9a60785d9fd24313, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816ec972959427243845c4776a0a7dea, type: 3}
 --- !u!1 &1139629998
@@ -5647,6 +5658,10 @@ PrefabInstance:
       propertyPath: playerPosition
       value: 
       objectReference: {fileID: 969580852}
+    - target: {fileID: 4581622724843880206, guid: 422c9cfef324f31408e723d5f87c1108, type: 3}
+      propertyPath: m_Mass
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 4581622724843880213, guid: 422c9cfef324f31408e723d5f87c1108, type: 3}
       propertyPath: m_Name
       value: boneworm-black

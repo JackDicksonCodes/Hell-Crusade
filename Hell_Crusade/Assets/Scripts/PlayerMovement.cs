@@ -14,14 +14,14 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown = 5f; //timer length
     private float dashLength = 0.5f;
     private float baseSpeed = 5f;
-
+    public Animator animator;
     private float dashCounter; //actual timer
     private float dashCoolCounter;
     
 
 
 
-    private float speed;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mouse = cam.ScreenToWorldPoint(Input.mousePosition);
+        
+        animator.SetFloat("Speed", speed);
     
 
     //This is the dash ability
@@ -66,10 +68,11 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift)){
             speed = 7.0f;
         }
+        if(Input.GetKeyUp(KeyCode.LeftShift)){
+            speed = baseSpeed;
+        }
 
-        // else{
-        //     speed = baseSpeed;
-        // }
+        
 
 
     }
