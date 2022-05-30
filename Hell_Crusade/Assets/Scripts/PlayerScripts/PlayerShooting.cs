@@ -17,10 +17,12 @@ public class PlayerShooting : MonoBehaviour
 
     private int maxBullets = 30;
     private int currentBullets;
+    private bool isReloading; 
     
     void Start(){
         currentBullets = maxBullets;
         bulletCountUI.currentBulletCount(currentBullets);
+        // isReloading = false;
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class PlayerShooting : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R)){
             currentBullets = 0;
+            // isReloading = true;
             Invoke("reload", 3);        
             }
     }
@@ -55,6 +58,7 @@ public class PlayerShooting : MonoBehaviour
     void reload(){
         currentBullets = maxBullets;
         bulletCountUI.currentBulletCount(currentBullets);
+        // isReloading = false;
     }
 
     
