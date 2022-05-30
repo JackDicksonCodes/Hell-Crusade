@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
-    private bool isRadarOn {get; set;}
-    public Transform radarStart;
-    // private Transform radarDir;
-    private float radarSpeed = 15f;
-    private Vector3 axis;
+    public bool isRadarOn {get; set;}
+    private GameObject player;
+    public Transform radar;
+    private Vector3 rayDir;
+    private int mask;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        player = GameObject.Find("Player");
         isRadarOn = true;
-        axis = new Vector3(0,0,1);
+        mask = LayerMask.GetMask("Player");
+       
     }
 
     // Update is called once per frame
@@ -22,12 +24,12 @@ public class EnemyDetection : MonoBehaviour
     {
         
         if(isRadarOn){
-            radarStart.RotateAround(radarStart.position, axis, radarSpeed);
-            RaycastHit2D radar = Physics2D.Raycast(radarStart.position, radarStart.up);
-            if(radar.collider.tag == "Player"){
-                Debug.Log("found you");
+            rayDir = transform.TransformDirection(player.transform.position - radar.transform.position);
+            if(Physics2D.Raycast(radar.transform.position, rayDir, 8f, mask)){
+                gameObject.GetComponent<EnemyCombatAI>().isInCombat = true;
+                
             }
-            Debug.DrawLine(radarStart.position, radarStart.up, Color.green);
+            
         }
     }
 }
