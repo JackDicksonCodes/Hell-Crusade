@@ -9,14 +9,15 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D body;
     Vector2 movement;
     Vector2 mouse;
+    public DashStatus dashStatusUI;
 
     public float dashSpeed;
     public float dashCooldown = 5f; //timer length
     private float dashLength = 0.5f;
     private float baseSpeed = 5f;
     public Animator animator;
-    private float dashCounter; //actual timer
-    private float dashCoolCounter;
+    private float dashCounter; //duration of dash
+    private float dashCoolCounter; //duration of cooldown
     
 
 
@@ -62,7 +63,17 @@ public class PlayerMovement : MonoBehaviour
         if (dashCoolCounter > 0)
             {
                 dashCoolCounter -= Time.deltaTime;
+                dashStatusUI.dashOnCooldown(dashCoolCounter);
             }
+
+        if (dashCoolCounter <= 0){
+            dashStatusUI.dashIsReady();
+        }
+
+        if (dashCounter > 0){
+            dashStatusUI.dashInUse();
+        }
+        
 
         //Sprint
         if(Input.GetKey(KeyCode.LeftShift)){
