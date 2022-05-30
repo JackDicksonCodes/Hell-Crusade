@@ -10,7 +10,9 @@ public class ReloadUI : MonoBehaviour
 
     private float timer;
 
-
+    void Start(){
+        timer = 2f;
+    }
 
 
     // Update is called once per frame
@@ -18,7 +20,11 @@ public class ReloadUI : MonoBehaviour
     {
         if (timer > 0){
             timer -= Time.deltaTime;
-            reloadTimerUI = timer.ToString();
+            reloadTimerUI.text = timer.ToString("0.00");
+        }
+
+        if (timer <= 0) {
+            reloadTimerUI.text = "";
         }
     }
 
