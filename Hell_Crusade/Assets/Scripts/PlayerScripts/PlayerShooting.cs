@@ -8,13 +8,20 @@ public class PlayerShooting : MonoBehaviour
 
     public GameObject bulletObj;
 
+    public BulletCount bulletCountUI;
+
     public float bulletForce = 30f;
 
     private float fireRate = 0.2f;
     private float nextFire = 0f;
 
-    private int bullets = 30;
+    private int maxBullets = 30;
+    private int currentBullets;
     
+    void Start(){
+        currentBullets = maxBullets;
+        bulletCountUI.currentBulletCount(currentBullets);
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,24 +35,26 @@ public class PlayerShooting : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.R)){
-            bullets = 0;
+            currentBullets = 0;
             Invoke("reload", 3);        
             }
     }
 
     void fire(){
 
-        if(bullets != 0){
+        if(currentBullets != 0){
             GameObject bullet = Instantiate(bulletObj, bulletExit.position, bulletExit.rotation);
             Rigidbody2D body = bullet.GetComponent<Rigidbody2D>();
             body.AddForce(bulletExit.up * bulletForce, ForceMode2D.Impulse);
-            bullets -= 1;
+            currentBullets -= 1;
+            bulletCountUI.currentBulletCount(currentBullets);
         }
        
 
     }
     void reload(){
-        bullets = 30;
+        currentBullets = maxBullets;
+        bulletCountUI.currentBulletCount(currentBullets);
     }
 
     
