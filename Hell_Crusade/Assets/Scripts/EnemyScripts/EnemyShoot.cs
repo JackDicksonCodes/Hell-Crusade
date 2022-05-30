@@ -20,8 +20,8 @@ public class EnemyShoot : MonoBehaviour
 
     // Update is called once per frame
    void Update()
-    {   
-        
+    {
+
         rayDir = transform.TransformDirection(playerPosition.transform.position - transform.position);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDir);
         if(hit.collider.tag == "Player"){
@@ -31,8 +31,7 @@ public class EnemyShoot : MonoBehaviour
         if(activeCooldown > 0){
             activeCooldown -= Time.deltaTime;
         }
-       
-        
+
     }
 
     void Shoot(){
