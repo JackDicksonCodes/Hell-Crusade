@@ -10,9 +10,9 @@ public class ReloadUI : MonoBehaviour
 
     private float timer;
 
-    void Start(){
-        timer = 2f;
-    }
+    // void Start(){
+        // timer = 2f;
+    // }
 
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class ReloadUI : MonoBehaviour
         }
     }
 
-    void setTimer(float time){
+    public void setTimer(float time){
         timer = time;
     }
 }

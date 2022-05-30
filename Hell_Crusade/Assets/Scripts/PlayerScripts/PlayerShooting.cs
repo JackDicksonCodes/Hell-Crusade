@@ -9,15 +9,17 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletObj;
 
     public BulletCount bulletCountUI;
+    public ReloadUI reloadUI;
 
     public float bulletForce = 30f;
 
     private float fireRate = 0.2f;
     private float nextFire = 0f;
+    private float reloadTime = 3f;
 
     private int maxBullets = 30;
     private int currentBullets;
-    private bool isReloading; 
+    
     
     void Start(){
         currentBullets = maxBullets;
@@ -38,8 +40,8 @@ public class PlayerShooting : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R)){
             currentBullets = 0;
-            // isReloading = true;
-            Invoke("reload", 3);        
+            reloadUI.setTimer(reloadTime);
+            Invoke("reload", reloadTime);        
             }
     }
 

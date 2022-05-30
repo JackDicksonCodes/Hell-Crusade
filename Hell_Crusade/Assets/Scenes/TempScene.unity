@@ -434,10 +434,10 @@ RectTransform:
   m_Father: {fileID: 49459354}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -748.18, y: -541.54}
-  m_SizeDelta: {x: 137.64, y: 89.029}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 221, y: 56}
+  m_SizeDelta: {x: 137.64001, y: 89.02899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140463840
 MonoBehaviour:
@@ -4235,6 +4235,7 @@ MonoBehaviour:
   bulletExit: {fileID: 1401782043}
   bulletObj: {fileID: 1642475083734186854, guid: 11566ac5c5c00b04683f2ec62e4abb5f, type: 3}
   bulletCountUI: {fileID: 1590639194}
+  reloadUI: {fileID: 140463842}
   bulletForce: 30
 --- !u!70 &969580856
 CapsuleCollider2D:
