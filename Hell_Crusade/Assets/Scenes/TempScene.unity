@@ -519,31 +519,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1934951, y: 0.3264982}
   m_EdgeRadius: 0
---- !u!114 &150414831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150414828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08a795e0552e82a4e9826414901490f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &150414835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150414828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6139c3a530e031143bd5d5f4bdd9bf61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPosition: {fileID: 969580852}
 --- !u!195 &150414839
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -566,20 +541,11 @@ NavMeshAgent:
   m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &150414840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &150414843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+  m_PrefabInstance: {fileID: 150414827}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150414828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d098cf7a5f0514db8c4be559bc13c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  attackDamage: 1
 --- !u!114 &150414844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +558,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766dfe47956f24c8da5bc64b03db9c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radar: {fileID: 303574339}
+--- !u!114 &150414845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150414828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb271b0d8fa724149a4bf311d34501ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projexit: {fileID: 303574339}
+  bloodProjectile: {fileID: 7478376160872979506, guid: 93c722725787c59479e436268efa2f20, type: 3}
+  projectileForce: 5
+--- !u!114 &150414846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150414828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a795e0552e82a4e9826414901490f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &303574338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303574339}
+  m_Layer: 0
+  m_Name: radar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303574339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303574338}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.015, y: 0.126, z: -0.051292628}
+  m_LocalScale: {x: 0.22910404, y: 0.22910404, z: 0.22910404}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150414843}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637344540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4129,6 +4154,10 @@ PrefabInstance:
     - target: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_TagString
