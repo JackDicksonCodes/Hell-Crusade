@@ -65,7 +65,12 @@ public class EnemyCombatAI : MonoBehaviour
     private void move(){
         if(distance > 7)
         {
+            agent.isStopped = false;
             agent.destination = player.transform.position;
+           
+        }
+        else{
+            agent.isStopped = true;
         }
 
     }
