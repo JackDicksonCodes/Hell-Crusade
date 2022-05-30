@@ -24,13 +24,12 @@ public class PlayerShooting : MonoBehaviour
     void Start(){
         currentBullets = maxBullets;
         bulletCountUI.currentBulletCount(currentBullets);
-        // isReloading = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //Shooting
         if(Input.GetButton("Fire1")&& Time.time > nextFire){
             while(Time.time > nextFire){
                 nextFire = Time.time + fireRate;
@@ -38,9 +37,11 @@ public class PlayerShooting : MonoBehaviour
             }
         }
 
+        //When R is pressed gun is reloaded
         if(Input.GetKeyDown(KeyCode.R)){
             currentBullets = 0;
             reloadUI.setTimer(reloadTime);
+            bulletCountUI.toggleHideUI();//if not showing check inital state of isHidden in the UI element
             Invoke("reload", reloadTime);        
             }
     }
@@ -54,13 +55,12 @@ public class PlayerShooting : MonoBehaviour
             currentBullets -= 1;
             bulletCountUI.currentBulletCount(currentBullets);
         }
-       
 
     }
     void reload(){
         currentBullets = maxBullets;
         bulletCountUI.currentBulletCount(currentBullets);
-        // isReloading = false;
+        bulletCountUI.toggleHideUI();
     }
 
     
