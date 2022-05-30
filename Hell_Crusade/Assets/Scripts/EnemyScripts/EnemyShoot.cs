@@ -31,7 +31,7 @@ public class EnemyShoot : MonoBehaviour
         if(activeCooldown > 0){
             activeCooldown -= Time.deltaTime;
         }
-        Debug.Log(activeCooldown);
+       
         
     }
 
