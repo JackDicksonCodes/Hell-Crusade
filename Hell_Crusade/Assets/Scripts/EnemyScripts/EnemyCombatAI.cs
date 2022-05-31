@@ -22,7 +22,6 @@ public class EnemyCombatAI : MonoBehaviour
         isInCombat = false;
         player = GameObject.Find("Player");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
         agent.updateUpAxis = false;
         agent.updateRotation = false;
     }
@@ -37,9 +36,12 @@ public class EnemyCombatAI : MonoBehaviour
         else{
             move();
             fight();
+            
         }
         
     }
+
+    
 
     private void fight(){
         rayDir = transform.TransformDirection(player.transform.position - transform.position);
