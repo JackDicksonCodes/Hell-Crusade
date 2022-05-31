@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     IEnumerator GameOverRoutine(){
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         FindObjectOfType<GameManager>().GameOver();
     }
 

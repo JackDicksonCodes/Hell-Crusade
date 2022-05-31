@@ -10,6 +10,8 @@ public class EnemyDetection : MonoBehaviour
     private int mask;
     private float counter;
     private bool aiSwitch;
+    private EnemyCombatAI combatAi;
+    private EnemyIdleAi idleAi;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,8 @@ public class EnemyDetection : MonoBehaviour
         player = GameObject.Find("Player");
         aiSwitch = false;
         mask = LayerMask.GetMask("Player");
+        combatAi = gameObject.GetComponent<EnemyCombatAI>();
+        idleAi = gameObject.GetComponent<EnemyIdleAi>();
        
     }
 
@@ -27,8 +31,7 @@ public class EnemyDetection : MonoBehaviour
 
         rayDir = transform.TransformDirection(player.transform.position - radar.transform.position);
         if(Physics2D.Raycast(radar.transform.position, rayDir, 8f, mask)){
-            gameObject.GetComponent<EnemyCombatAI>().isInCombat = true;
-            gameObject.GetComponent<EnemyIdleAi>().isPatroling = false;
+           ChangeToCombat();
             counter = 3;
             aiSwitch = true;
         }
@@ -36,9 +39,20 @@ public class EnemyDetection : MonoBehaviour
             counter -= Time.deltaTime;
         }
         else if(counter <= 0 && aiSwitch){
-            gameObject.GetComponent<EnemyCombatAI>().isInCombat = false;
-            gameObject.GetComponent<EnemyIdleAi>().isPatroling = true;
+            ChangeToIdle();
             aiSwitch = false;
         }
     }
+
+    public void ChangeToCombat(){
+        combatAi.isInCombat = true;
+        idleAi.isPatroling = false;
+    }
+
+    public void ChangeToIdle(){
+        combatAi.isInCombat = false;
+        idleAi.isPatroling = true;
+    }
+
+   
 }

@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(col.gameObject);
             health -= 1;
+            FindObjectOfType<EnemyDetection>().ChangeToCombat();
         }
         
     }
