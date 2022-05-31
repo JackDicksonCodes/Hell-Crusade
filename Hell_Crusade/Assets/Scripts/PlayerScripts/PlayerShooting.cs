@@ -48,7 +48,7 @@ public class PlayerShooting : MonoBehaviour
 
     void fire(){
 
-        if(currentBullets != 0){
+        if(currentBullets != 0 && Time.timeScale != 0){
             GameObject bullet = Instantiate(bulletObj, bulletExit.position, bulletExit.rotation);
             Rigidbody2D body = bullet.GetComponent<Rigidbody2D>();
             body.AddForce(bulletExit.up * bulletForce, ForceMode2D.Impulse);
