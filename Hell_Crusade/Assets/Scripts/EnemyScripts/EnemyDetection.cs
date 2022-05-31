@@ -8,7 +8,7 @@ public class EnemyDetection : MonoBehaviour
     public Transform radar;
     private Vector3 rayDir;
     private int mask;
-    private int counter;
+    private float counter;
     private bool aiSwitch;
 
     // Start is called before the first frame update
@@ -29,13 +29,13 @@ public class EnemyDetection : MonoBehaviour
         if(Physics2D.Raycast(radar.transform.position, rayDir, 8f, mask)){
             gameObject.GetComponent<EnemyCombatAI>().isInCombat = true;
             gameObject.GetComponent<EnemyIdleAi>().isPatroling = false;
-            counter = 5;
+            counter = 3;
             aiSwitch = true;
         }
         else if(counter > 0){
-            counter -= 1;
+            counter -= Time.deltaTime;
         }
-        else if(counter == 0 && aiSwitch){
+        else if(counter <= 0 && aiSwitch){
             gameObject.GetComponent<EnemyCombatAI>().isInCombat = false;
             gameObject.GetComponent<EnemyIdleAi>().isPatroling = true;
             aiSwitch = false;
