@@ -11,39 +11,42 @@ public class PlayerShooting : MonoBehaviour
     public BulletCount bulletCountUI;
     public ReloadUI reloadUI;
 
-    public float bulletForce = 30f;
-
-    private float fireRate = 0.2f;
+    public float bulletForce = 20f;
+    public bool canShoot;
+    private float fireRate = 0.5f;
     private float nextFire = 0f;
     private float reloadTime = 3f;
 
-    private int maxBullets = 30;
+    private int maxBullets = 5;
     private int currentBullets;
     
     
     void Start(){
         currentBullets = maxBullets;
         bulletCountUI.currentBulletCount(currentBullets);
+        canShoot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Shooting
-        if(Input.GetButton("Fire1")&& Time.time > nextFire){
-            while(Time.time > nextFire){
-                nextFire = Time.time + fireRate;
-                fire();
+        if(canShoot){
+            //Shooting
+            if(Input.GetButton("Fire1")&& Time.time > nextFire){
+                while(Time.time > nextFire){
+                    nextFire = Time.time + fireRate;
+                    fire();
+                }
             }
-        }
 
-        //When R is pressed gun is reloaded
-        if(Input.GetKeyDown(KeyCode.R)){
-            currentBullets = 0;
-            reloadUI.setTimer(reloadTime);
-            bulletCountUI.toggleHideUI();//if not showing check inital state of isHidden in the UI element
-            Invoke("reload", reloadTime);        
-            }
+            //When R is pressed gun is reloaded
+            if(Input.GetKeyDown(KeyCode.R)){
+                currentBullets = 0;
+                reloadUI.setTimer(reloadTime);
+                bulletCountUI.toggleHideUI();//if not showing check inital state of isHidden in the UI element
+                Invoke("reload", reloadTime);        
+                }
+        }
     }
 
     void fire(){

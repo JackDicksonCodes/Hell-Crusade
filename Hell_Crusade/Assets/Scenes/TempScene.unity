@@ -312,7 +312,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projexit: {fileID: 303574339}
   bloodProjectile: {fileID: 7478376160872979506, guid: 93c722725787c59479e436268efa2f20, type: 3}
-  projectileForce: 30
+  projectileForce: 40
 --- !u!114 &150414846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3926,6 +3926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1603257977}
   dashStatusUI: {fileID: 516507208}
+  canMove: 0
   dashSpeed: 20
   dashCooldown: 1
   animator: {fileID: 969580858}
@@ -3973,6 +3974,7 @@ MonoBehaviour:
   bulletCountUI: {fileID: 1590639194}
   reloadUI: {fileID: 140463842}
   bulletForce: 30
+  canShoot: 0
 --- !u!70 &969580856
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4042,7 +4044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.78
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11519,7 +11521,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.32
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -11531,41 +11533,58 @@ NavMeshAgent:
   m_BaseOffset: 0.32
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1769760400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769760392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d098cf7a5f0514db8c4be559bc13c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  attackDamage: 2
---- !u!114 &1769760401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769760392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c400524430828544c9c3541ed932c21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPosition: {fileID: 969580852}
-  projectileForce: 20
-  projexit: {fileID: 109599240}
-  bloodProjectile: {fileID: 7478376160872979506, guid: 93c722725787c59479e436268efa2f20, type: 3}
 --- !u!4 &1769760407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4581622724843880201, guid: 422c9cfef324f31408e723d5f87c1108, type: 3}
   m_PrefabInstance: {fileID: 4581622725420799034}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1769760413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769760392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb271b0d8fa724149a4bf311d34501ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projexit: {fileID: 109599240}
+  bloodProjectile: {fileID: 7478376160872979506, guid: 93c722725787c59479e436268efa2f20, type: 3}
+  projectileForce: 20
+--- !u!114 &1769760414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769760392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a78db0af0c089428b88acb7f22377f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 1764941438}
+  - {fileID: 1180363769}
+  - {fileID: 122589766}
+  - {fileID: 152250043}
+  isPatroling: 0
+  patrolStart: 0
+--- !u!114 &1769760415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769760392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766dfe47956f24c8da5bc64b03db9c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radar: {fileID: 109599240}
 --- !u!1001 &2261873342527862653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11815,5 +11834,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: boneworm-black
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4581622724843880203, guid: 422c9cfef324f31408e723d5f87c1108, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 422c9cfef324f31408e723d5f87c1108, type: 3}

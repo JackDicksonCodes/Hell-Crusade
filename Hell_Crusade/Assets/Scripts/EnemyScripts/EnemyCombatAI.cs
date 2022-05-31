@@ -10,7 +10,7 @@ public class EnemyCombatAI : MonoBehaviour
     public Transform projexit;
     private GameObject player;
     public GameObject bloodProjectile;
-    private float coolDown = 5f;
+    private float coolDown = 1f;
     private float activeCooldown;
     public float projectileForce = 10f;
     private float distance;
@@ -31,9 +31,11 @@ public class EnemyCombatAI : MonoBehaviour
     {
         distance = Vector3.Distance(transform.position, player.transform.position);
         if(isInCombat == false){
+            agent.speed = 3;
             return;
         }
         else{
+            agent.speed = 6;
             move();
             fight();
             

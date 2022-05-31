@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if(currentHealth <= 0){
             animator.SetBool("Death", true);
+            FindObjectOfType<PlayerMovement>().canMove = false;
+            FindObjectOfType<PlayerShooting>().canShoot = false;
             StartCoroutine(GameOverRoutine());
         }
     }
@@ -36,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     IEnumerator GameOverRoutine(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         FindObjectOfType<GameManager>().GameOver();
     }
 

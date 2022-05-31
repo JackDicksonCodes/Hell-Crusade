@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     Vector2 mouse;
     public DashStatus dashStatusUI;
-
+    public bool canMove; 
     public float dashSpeed;
     public float dashCooldown = 5f; //timer length
     private float dashLength = 0.5f;
@@ -28,62 +28,64 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         speed = baseSpeed;
+        canMove = true;
     
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if(canMove){
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-        mouse = cam.ScreenToWorldPoint(Input.mousePosition);
+            mouse = cam.ScreenToWorldPoint(Input.mousePosition);
+            
+            animator.SetFloat("Speed", speed);
         
-        animator.SetFloat("Speed", speed);
-    
 
-    //This is the dash ability
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if (dashCoolCounter <= 0 && dashCounter <= 0)
+        //This is the dash ability
+            if(Input.GetKeyDown(KeyCode.Space))
             {
-            speed = dashSpeed;
-            dashCounter = dashLength;
-            }
-        }
-        //dash duration counter
-        if (dashCounter > 0){
-                dashCounter -= Time.deltaTime;
-                if (dashCounter <= 0)
+                if (dashCoolCounter <= 0 && dashCounter <= 0)
                 {
-                    speed = baseSpeed;
-                    dashCoolCounter = dashCooldown;
+                speed = dashSpeed;
+                dashCounter = dashLength;
                 }
             }
-        if (dashCoolCounter > 0)
-            {
-                dashCoolCounter -= Time.deltaTime;
-                dashStatusUI.dashOnCooldown(dashCoolCounter);
+            //dash duration counter
+            if (dashCounter > 0){
+                    dashCounter -= Time.deltaTime;
+                    if (dashCounter <= 0)
+                    {
+                        speed = baseSpeed;
+                        dashCoolCounter = dashCooldown;
+                    }
+                }
+            if (dashCoolCounter > 0)
+                {
+                    dashCoolCounter -= Time.deltaTime;
+                    dashStatusUI.dashOnCooldown(dashCoolCounter);
+                }
+
+            if (dashCoolCounter <= 0){
+                dashStatusUI.dashIsReady();
             }
 
-        if (dashCoolCounter <= 0){
-            dashStatusUI.dashIsReady();
-        }
+            if (dashCounter > 0){
+                dashStatusUI.dashInUse();
+            }
+            
 
-        if (dashCounter > 0){
-            dashStatusUI.dashInUse();
-        }
-        
+            //Sprint
+            if(Input.GetKey(KeyCode.LeftShift)){
+                speed = 7.0f;
+            }
+            if(Input.GetKeyUp(KeyCode.LeftShift)){
+                speed = baseSpeed;
+            }
 
-        //Sprint
-        if(Input.GetKey(KeyCode.LeftShift)){
-            speed = 7.0f;
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift)){
-            speed = baseSpeed;
-        }
-
-        
 
 
     }
