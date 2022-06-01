@@ -28,6 +28,8 @@ public class EnemyScript : MonoBehaviour
 
     private void OnDestroy() 
     {
-        FindObjectOfType<DoorBehaviour>().removeEnemy(gameObject);
+        if(FindObjectOfType<DoorBehaviour>()){
+            FindObjectOfType<DoorBehaviour>().removeEnemy(gameObject);
+        }
     }
 }
