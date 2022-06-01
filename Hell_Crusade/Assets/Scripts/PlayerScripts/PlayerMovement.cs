@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Camera cam;
+    private Camera cam;
     Rigidbody2D body;
     Vector2 movement;
     Vector2 mouse;
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         speed = baseSpeed;
         canMove = true;
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     
     }
 
