@@ -14,7 +14,7 @@ public class EnemyExplode : MonoBehaviour
     private float distance;
     private Vector3 rayDir;
 
-    public int explosionDamage;
+    // public int explosionDamage;
     public float triggerRange; //range before enemy stops and explodes
 
     // Start is called before the first frame update
@@ -40,8 +40,8 @@ public class EnemyExplode : MonoBehaviour
             move();
             
         }
-        
     }
+    
         private void move(){
         if(distance > triggerRange)
         {
@@ -54,7 +54,11 @@ public class EnemyExplode : MonoBehaviour
             //explode
             Debug.Log("Within range");
             GameObject explosion = Instantiate(explosionObject, explosionOrigin.position, explosionOrigin.rotation);
-            
+            Destroy(gameObject);
         }
+    }
+
+    public void spawnExplosion(){
+        GameObject explosion = Instantiate(explosionObject, explosionOrigin.position, explosionOrigin.rotation);
     }
 }
