@@ -11918,6 +11918,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3838044311826540061}
     - target: {fileID: 3752510905169713655, guid: 90e98b799df66a549bf071c513c7393b, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1716095438}
+    - target: {fileID: 3752510905169713655, guid: 90e98b799df66a549bf071c513c7393b, type: 3}
       propertyPath: dashStatusUI
       value: 
       objectReference: {fileID: 3838044310753204751}
