@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StageDoor : MonoBehaviour
+public class StageExit : MonoBehaviour
 {
+    public string exitName;
     public string nextSceneName;
 
 
     public void MoveToNextStage(){
+        PlayerPrefs.SetString("LastExitName", exitName);
         SceneManager.LoadScene(nextSceneName);
     }
 
