@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Menu.unity
     guid: d5e2204b16960c04d896a76d687e940d
   - enabled: 1
     path: Assets/Scenes/TempScene.unity
     guid: e8a2ad07133c8e14e924573c6aa8658e
+  - enabled: 1
+    path: Assets/Scenes/Development Scenes/Pause Test.unity
+    guid: 47e57d8ecb8dc8341a8a21e576c179bb
+  - enabled: 1
+    path: Assets/Scenes/Development Scenes/new room.unity
+    guid: 18401192de180dd4aa51ca7d726b272b
   m_configObjects: {}

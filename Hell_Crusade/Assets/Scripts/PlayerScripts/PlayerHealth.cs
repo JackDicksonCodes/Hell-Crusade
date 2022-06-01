@@ -34,7 +34,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.MaxHealth(maxHealth);
         animator = GetComponent<Animator>();
-        
     }
 
     IEnumerator GameOverRoutine(){
