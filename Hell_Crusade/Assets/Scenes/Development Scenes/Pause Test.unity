@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d1208424cdb4d99a016226bddadfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitName: 1
+  exitName: test
   nextSceneName: new room
 --- !u!1 &457214284
 GameObject:
