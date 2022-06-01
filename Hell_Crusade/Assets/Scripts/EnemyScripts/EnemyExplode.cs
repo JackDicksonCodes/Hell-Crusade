@@ -6,14 +6,16 @@ public class EnemyExplode : MonoBehaviour
 {
     public bool isInCombat {get; set;}
     UnityEngine.AI.NavMeshAgent agent;
-    public Transform projexit;
     private GameObject player;
-    public GameObject bloodProjectile;
-    private float coolDown = 1f;
-    private float activeCooldown;
-    public float projectileForce = 10f;
+
+    public GameObject explosionObject;
+    public Transform explosionOrigin;
+
     private float distance;
     private Vector3 rayDir;
+
+    public int explosionDamage;
+    public float triggerRange; //range before enemy stops and explodes
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,8 @@ public class EnemyExplode : MonoBehaviour
         isInCombat = false;
         player = GameObject.Find("Player");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
     }
 
     // Update is called once per frame
@@ -35,12 +39,11 @@ public class EnemyExplode : MonoBehaviour
             agent.speed = 6;
             move();
             
-            
         }
         
     }
         private void move(){
-        if(distance > 0.5)
+        if(distance > triggerRange)
         {
             agent.isStopped = false;
             agent.destination = player.transform.position;
@@ -49,6 +52,9 @@ public class EnemyExplode : MonoBehaviour
         else{
             agent.isStopped = true;
             //explode
+            Debug.Log("Within range");
+            GameObject explosion = Instantiate(explosionObject, explosionOrigin.position, explosionOrigin.rotation);
+            
         }
     }
 }
