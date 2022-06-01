@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class ExplodingEnemyScript : MonoBehaviour
 {
     public int health = 2;
+    private EnemyExplode enemyExplode;
+
+    void Start(){
+        enemyExplode = gameObject.GetComponent<EnemyExplode>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(health == 0){
-            
+            enemyExplode.spawnExplosion();
             Destroy(gameObject);
         }
     }
@@ -21,13 +26,10 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(col.gameObject);
             health -= 1;
-            FindObjectOfType<EnemyDetection>().ChangeToCombat();
+            FindObjectOfType<ExplosionEnemyDetection>().ChangeToCombat();
         }
-        
     }
-
-    private void OnDestroy() 
-    {
-        FindObjectOfType<DoorBehaviour>().removeEnemy(gameObject);
+    public int getHealth(){
+        return health;
     }
 }
