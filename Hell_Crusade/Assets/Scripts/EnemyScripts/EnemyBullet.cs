@@ -26,5 +26,8 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
 
         }
+        else if(col.gameObject.tag.Equals("Wall")){
+            Destroy(gameObject);
+        }
     }
 }

@@ -5346,6 +5346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
+  onFire: 0
+  fireDuration: 5
   healthBar: {fileID: 1009444377}
 --- !u!95 &969580858 stripped
 Animator:
@@ -5528,7 +5530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1180363769 stripped
 Transform:
@@ -5647,7 +5649,7 @@ Transform:
   - {fileID: 637344541}
   - {fileID: 687719743}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401782042
 GameObject:
@@ -5779,7 +5781,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1575351013
 GameObject:
@@ -19510,9 +19512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projexit: {fileID: 831526290}
-  bloodProjectile: {fileID: 2121281939814363781, guid: eab30ab7709d8da4bab73efde6bd29b6, type: 3}
+  bloodProjectile: {fileID: 143925310220649059, guid: eab30ab7709d8da4bab73efde6bd29b6, type: 3}
   coolDown: 2
-  projectileForce: 9
+  projectileForce: 1
   idleSpeed: 1
   combatSpeed: 2
 --- !u!114 &1637040681
@@ -19853,7 +19855,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2261873341807603144, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2261873341807603144, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
       propertyPath: m_LocalScale.x
@@ -20024,7 +20026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4992651823132650283, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4992651823132650283, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
       propertyPath: m_LocalScale.x
@@ -20097,7 +20099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8169333890206700131, guid: d697873d105f86a439da9b599c3a7646, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8169333890206700131, guid: d697873d105f86a439da9b599c3a7646, type: 3}
       propertyPath: m_LocalScale.x
