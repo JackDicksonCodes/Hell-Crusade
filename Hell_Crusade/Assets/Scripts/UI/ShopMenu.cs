@@ -11,9 +11,11 @@ public class ShopMenu : MonoBehaviour
     private GameObject player;
     private PlayerGold playerGold;
     private PlayerHealth playerHealth;
+    private int healthLVL = 1;
+    public TextMeshProUGUI displayedHealthLVL;
     
 
-    private int healthUpgradeCost = 50;
+    private int healthUpgradeCost = 25;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,8 @@ public class ShopMenu : MonoBehaviour
     public void purchaseHealth(){
         if (playerGold.getGold() >= healthUpgradeCost){
             playerHealth.increaseMaxHealth(5);
+            healthLVL += 1;
+            displayedHealthLVL.text = "Level: " + healthLVL;
             playerGold.addOrSubtractGold(-healthUpgradeCost);
 
         }
