@@ -7,8 +7,10 @@ public class ExplodingEnemyScript : MonoBehaviour
     public int health = 2;
     public int goldDrop;
     private EnemyExplode enemyExplode;
-    [SerializeField] GameObject player;
-    [SerializeField] PlayerGold playerGold;
+
+    //accessing player then finding the goldscript
+    private GameObject player;
+    private PlayerGold playerGold;
 
     void Start(){
         enemyExplode = gameObject.GetComponent<EnemyExplode>();
@@ -19,7 +21,7 @@ public class ExplodingEnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health == 0){
+        if(health <= 0){
             enemyExplode.spawnExplosion();
             playerGold.addOrSubtractGold(goldDrop);
             Destroy(gameObject);

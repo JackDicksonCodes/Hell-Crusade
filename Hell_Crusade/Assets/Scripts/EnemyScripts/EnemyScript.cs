@@ -5,12 +5,22 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public int health = 2;
+    public int goldDrop;
+
+    private GameObject player;
+    private PlayerGold playerGold;
+
+    void Start()
+    {
+        player = GameObject.Find("Player");
+        playerGold = player.GetComponent<PlayerGold>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(health == 0){
-            
+        if(health <= 0){
+            playerGold.addOrSubtractGold(goldDrop);
             Destroy(gameObject);
         }
     }
