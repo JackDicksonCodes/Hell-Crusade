@@ -8,6 +8,7 @@ public class ShopMenu : MonoBehaviour
 {
     public static bool isOpen = false;
     public GameObject shopMenu;
+    public TextMeshProUGUI shopMessage;
     private GameObject player;
     private PlayerGold playerGold;
 
@@ -32,8 +33,8 @@ public class ShopMenu : MonoBehaviour
         player = GameObject.Find("Player");
         playerGold = player.GetComponent<PlayerGold>();
         playerHealth = player.GetComponent<PlayerHealth>();
-        displayedHealthUpgradeCost.text = healthUpgradeCost.ToString();
         playerShooting = player.GetComponent<PlayerShooting>();
+        displayedHealthUpgradeCost.text = healthUpgradeCost.ToString();
         displayedMagazineCapacityCost.text = magazineCapacityUpgradeCost.ToString();
     }
 
@@ -59,14 +60,19 @@ public class ShopMenu : MonoBehaviour
         isOpen = false;
     }
 
+    void displayShopMessage(string message){
+        shopMessage.text = message;
+    }
+
     public void purchaseHealthUpgrade(){
         if (playerGold.getGold() >= healthUpgradeCost){
             playerHealth.increaseMaxHealth(5);
             healthLVL += 1;
             displayedHealthLVL.text = "Level: " + healthLVL;
             playerGold.addOrSubtractGold(-healthUpgradeCost);
+            displayShopMessage("Health upgrade purchased!");
         } else {
-            Debug.Log("Not enough gold");
+            displayShopMessage("Not enough gold!!!");
         }
     }
 
@@ -76,9 +82,13 @@ public class ShopMenu : MonoBehaviour
             magazineCapLVL += 1;
             displayMagazineLVL.text = "Level: " + magazineCapLVL;
             playerGold.addOrSubtractGold(-magazineCapacityUpgradeCost);
+            displayShopMessage("Magazine upgrade purchased!");
         } else {
-            Debug.Log("Not enough gold");
+            displayShopMessage("Not enough gold!!!");
         }
+    }
 
+    IEnumerator messageDuration(){
+        yield return new WaitForSeconds(5); //message will disappear after entered seconds
     }
 }
