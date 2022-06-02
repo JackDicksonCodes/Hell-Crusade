@@ -26,6 +26,9 @@ public class ShopMenu : MonoBehaviour
     public TextMeshProUGUI displayedMagazineCapacityCost;
     private int magazineCapacityUpgradeCost = 25;
 
+    //Movement
+    private PlayerMovement playerMovement;
+
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,7 @@ public class ShopMenu : MonoBehaviour
         playerGold = player.GetComponent<PlayerGold>();
         playerHealth = player.GetComponent<PlayerHealth>();
         playerShooting = player.GetComponent<PlayerShooting>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         displayedHealthUpgradeCost.text = healthUpgradeCost.ToString();
         displayedMagazineCapacityCost.text = magazineCapacityUpgradeCost.ToString();
     }
@@ -53,11 +57,15 @@ public class ShopMenu : MonoBehaviour
     void openMenu(){
         shopMenu.SetActive(true);
         isOpen = true;
+        playerShooting.canShoot = false;
+        playerMovement.canMove = false;
     }
 
     void closeMenu(){
         shopMenu.SetActive(false);
         isOpen = false;
+        playerShooting.canShoot = true;
+        playerMovement.canMove = true;
     }
 
     void displayShopMessage(string message){
