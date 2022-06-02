@@ -66,5 +66,10 @@ public class PlayerShooting : MonoBehaviour
         bulletCountUI.toggleHideUI();
     }
 
+    public void increaseMagazineCapacity(){
+        maxBullets += 1;
+        currentBullets = maxBullets;
+        bulletCountUI.currentBulletCount(currentBullets);
+    }
     
 }
