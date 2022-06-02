@@ -5,10 +5,13 @@ using UnityEngine;
 public class ExplodingEnemyScript : MonoBehaviour
 {
     public int health = 2;
+    public int goldDrop;
     private EnemyExplode enemyExplode;
+    public PlayerGold playerGold;
 
     void Start(){
         enemyExplode = gameObject.GetComponent<EnemyExplode>();
+        // playerGold =
     }
 
     // Update is called once per frame
@@ -17,6 +20,7 @@ public class ExplodingEnemyScript : MonoBehaviour
         if(health == 0){
             enemyExplode.spawnExplosion();
             Destroy(gameObject);
+            playerGold.addOrSubtractGold(goldDrop);
         }
     }
 
