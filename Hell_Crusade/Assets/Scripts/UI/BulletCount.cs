@@ -11,7 +11,6 @@ public class BulletCount : MonoBehaviour
     private bool isHidden;
 
     void Start(){
-        currentBullets = 30;
         isHidden = false;
     }
 

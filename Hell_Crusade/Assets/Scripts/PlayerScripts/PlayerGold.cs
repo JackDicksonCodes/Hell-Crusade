@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerGold : MonoBehaviour
 {
     private int playerGold;
+    public GoldUI goldUI;
     // Start is called before the first frame update
     void Start()
     {
         playerGold = 0;
+        goldUI.updateGold(playerGold);
     }
 
     // Update is called once per frame
@@ -19,6 +21,10 @@ public class PlayerGold : MonoBehaviour
 
     public void addOrSubtractGold(int amount){
         playerGold += amount;
-        Debug.Log(playerGold);
+        goldUI.updateGold(playerGold);
+    }
+    
+    public int getGold(){
+        return playerGold;
     }
 }
