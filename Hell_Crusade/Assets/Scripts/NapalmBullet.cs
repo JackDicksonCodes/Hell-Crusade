@@ -2,19 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class NapalmBullet : MonoBehaviour
 {
+    
+    public GameObject fire;
+    private float fireTimer;
+    private PlayerHealth playerHealth;
 
-    PlayerHealth playerHealth;
-    // Start is called before the first frame update
+
     void Start()
     {
         
+        fireTimer = 0.12f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(fireTimer <= 0){
+            GameObject fireFloor = Instantiate(fire, gameObject.transform.position, gameObject.transform.rotation);
+            fireTimer = 0.12f;
+        }
+        else if(fireTimer > 0){
+            fireTimer -= Time.deltaTime;
+        }
         
     }
 
@@ -30,4 +41,6 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }

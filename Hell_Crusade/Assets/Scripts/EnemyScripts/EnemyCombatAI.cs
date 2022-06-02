@@ -10,11 +10,13 @@ public class EnemyCombatAI : MonoBehaviour
     public Transform projexit;
     private GameObject player;
     public GameObject bloodProjectile;
-    private float coolDown = 1f;
+    public float coolDown = 1f;
     private float activeCooldown;
     public float projectileForce = 10f;
     private float distance;
     private Vector3 rayDir;
+    public float idleSpeed;
+    public float combatSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +33,11 @@ public class EnemyCombatAI : MonoBehaviour
     {
         distance = Vector3.Distance(transform.position, player.transform.position);
         if(isInCombat == false){
-            agent.speed = 3;
+            agent.speed = idleSpeed;
             return;
         }
         else{
-            agent.speed = 6;
+            agent.speed = combatSpeed;
             move();
             fight();
             
