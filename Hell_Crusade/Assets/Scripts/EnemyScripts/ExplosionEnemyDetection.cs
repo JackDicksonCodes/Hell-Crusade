@@ -6,6 +6,7 @@ public class ExplosionEnemyDetection : MonoBehaviour
 {
     private GameObject player;
     public Transform radar;
+    public ExplodingEnemyScript ExplodingEnemyScript;
     private Vector3 rayDir;
     private int mask;
     private float counter;
@@ -27,23 +28,23 @@ public class ExplosionEnemyDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-        rayDir = transform.TransformDirection(player.transform.position - radar.transform.position);
-        if(Physics2D.Raycast(radar.transform.position, rayDir, 8f, mask)){
-           ChangeToCombat();
-            counter = 3;
-            aiSwitch = true;
-        }
-        else if(counter > 0){
-            counter -= Time.deltaTime;
-        }
-        else if(counter <= 0 && aiSwitch){
-            ChangeToIdle();
-            aiSwitch = false;
+        if (!ExplodingEnemyScript.getIsDead())
+        {
+            rayDir = transform.TransformDirection(player.transform.position - radar.transform.position);
+            if(Physics2D.Raycast(radar.transform.position, rayDir, 8f, mask)){
+                ChangeToCombat();
+                counter = 3;
+                aiSwitch = true;
+            }
+            else if(counter > 0){
+                counter -= Time.deltaTime;
+            }
+            else if(counter <= 0 && aiSwitch){
+                ChangeToIdle();
+                aiSwitch = false;
+            }
         }
     }
-
     public void ChangeToCombat(){
         combatAi.isInCombat = true;
         idleAi.isPatroling = false;
