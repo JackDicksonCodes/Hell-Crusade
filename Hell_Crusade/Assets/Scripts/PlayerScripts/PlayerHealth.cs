@@ -57,6 +57,19 @@ public class PlayerHealth : MonoBehaviour
         fireDuration = 0;
     }
 
+    public void heal(int healAmount){
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth){
+            currentHealth = maxHealth;
+        }
+    }
+
+    public void increaseMaxHealth(int increaseAmount){
+        maxHealth += increaseAmount;
+        heal(increaseAmount);
+
+    }
+
     IEnumerator GameOverRoutine(){
         yield return new WaitForSeconds(1.5f);
         FindObjectOfType<GameManager>().GameOver();
