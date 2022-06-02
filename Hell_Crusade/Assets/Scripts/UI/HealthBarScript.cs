@@ -6,6 +6,16 @@ using UnityEngine.UI;
 public class HealthBarScript : MonoBehaviour
 {
     public Slider slider;
+    public PlayerHealth playerHealth;
+    public GameObject fireIcon;
+
+    void Update(){
+        if (playerHealth.onFire == true){
+            fireIcon.SetActive(true);
+        } else {
+            fireIcon.SetActive(false);
+        }
+    }
 
     public void MaxHealth(int health)
     {
