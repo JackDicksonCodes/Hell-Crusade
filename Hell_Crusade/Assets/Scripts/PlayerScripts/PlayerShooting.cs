@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public Transform bulletExit;
-
     public GameObject bulletObj;
+    public AudioSource weaponSounds;
+    public AudioClip gunShotSound;
+    public AudioClip reloadSound;
 
     public BulletCount bulletCountUI;
     public ReloadUI reloadUI;
@@ -43,6 +45,7 @@ public class PlayerShooting : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.R)){
                 currentBullets = 0;
                 reloadUI.setTimer(reloadTime);
+                weaponSounds.PlayOneShot(reloadSound);
                 bulletCountUI.toggleHideUI();//if not showing check inital state of isHidden in the UI element
                 Invoke("reload", reloadTime);        
                 }
@@ -57,6 +60,7 @@ public class PlayerShooting : MonoBehaviour
             body.AddForce(bulletExit.up * bulletForce, ForceMode2D.Impulse);
             currentBullets -= 1;
             bulletCountUI.currentBulletCount(currentBullets);
+            weaponSounds.PlayOneShot(gunShotSound);
         }
 
     }
