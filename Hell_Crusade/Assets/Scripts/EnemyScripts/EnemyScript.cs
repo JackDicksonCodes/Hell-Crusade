@@ -9,6 +9,8 @@ public class EnemyScript : MonoBehaviour
 
     private GameObject player;
     private PlayerGold playerGold;
+    public AudioSource enemySounds;
+    public AudioClip enemyScream;
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class EnemyScript : MonoBehaviour
             Destroy(col.gameObject);
             health -= 1;
             FindObjectOfType<EnemyDetection>().ChangeToCombat();
+            enemySounds.PlayOneShot(enemyScream);
         }
         
     }

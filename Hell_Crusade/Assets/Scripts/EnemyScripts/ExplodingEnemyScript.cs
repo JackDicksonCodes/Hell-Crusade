@@ -11,6 +11,9 @@ public class ExplodingEnemyScript : MonoBehaviour
     //accessing player then finding the goldscript
     private GameObject player;
     private PlayerGold playerGold;
+    public AudioSource enemySounds;
+    public AudioClip enemyScream;
+    private bool isDead = false;
 
     void Start(){
         enemyExplode = gameObject.GetComponent<EnemyExplode>();
@@ -22,6 +25,7 @@ public class ExplodingEnemyScript : MonoBehaviour
     void Update()
     {
         if(health <= 0){
+            isDead = true;
             enemyExplode.spawnExplosion();
             playerGold.addOrSubtractGold(goldDrop);
             Destroy(gameObject);
@@ -35,9 +39,14 @@ public class ExplodingEnemyScript : MonoBehaviour
             Destroy(col.gameObject);
             health -= 1;
             FindObjectOfType<ExplosionEnemyDetection>().ChangeToCombat();
+            enemySounds.PlayOneShot(enemyScream);
         }
     }
     public int getHealth(){
         return health;
+    }
+
+    public bool getIsDead(){
+        return isDead;
     }
 }
