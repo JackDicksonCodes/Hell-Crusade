@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject optionsMenu;
+    public GameObject mainMenuButtons;
+
+
     public void playGame(){
         SceneManager.LoadScene("TempScene");
     }
@@ -14,6 +18,12 @@ public class MainMenu : MonoBehaviour
     }
 
     public void openOptions(){
-        
+        mainMenuButtons.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void closeOptions(){
+        mainMenuButtons.SetActive(true);
+        optionsMenu.SetActive(false);
     }
 }
