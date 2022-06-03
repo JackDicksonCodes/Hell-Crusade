@@ -20,12 +20,14 @@ public class RoomChange : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnCollisionEnter2D(Collision2D other) 
     {
-        if(other.CompareTag("Player")){
+        if(other.gameObject.tag.Equals("Player")){
             cam.min += cameraChange;
             cam.max += cameraChange;
             other.transform.position += playerChange;
         }
     }
+
+    
 }

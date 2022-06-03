@@ -5009,7 +5009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashStatusUI: {fileID: 1376033448}
   canMove: 0
-  dashSpeed: 20
+  dashSpeed: 30
   dashCooldown: 1
   animator: {fileID: 969580858}
   speed: 0
@@ -20034,7 +20034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603257976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.47, y: -18.24, z: -10}
+  m_LocalPosition: {x: -7.47, y: -0.31, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20105,7 +20105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456595817638027033, guid: 2580eaf24d221004c94b21e23178a14c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.499999
+      value: -9.45
       objectReference: {fileID: 0}
     - target: {fileID: 1456595817638027033, guid: 2580eaf24d221004c94b21e23178a14c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20322,6 +20322,18 @@ PrefabInstance:
       propertyPath: cameraChange.y
       value: 20.08
       objectReference: {fileID: 0}
+    - target: {fileID: 4992651823132650282, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16359043
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992651823132650282, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08096647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4992651823132650282, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4992651823132650283, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -20344,7 +20356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4992651823132650283, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.56
+      value: -9.761
       objectReference: {fileID: 0}
     - target: {fileID: 4992651823132650283, guid: ef88a05cecaa7134581caf7776761ac2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20613,6 +20625,18 @@ PrefabInstance:
     - target: {fileID: 8169333890206700129, guid: d697873d105f86a439da9b599c3a7646, type: 3}
       propertyPath: cameraChange.y
       value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169333890206700130, guid: d697873d105f86a439da9b599c3a7646, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16677189
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169333890206700130, guid: d697873d105f86a439da9b599c3a7646, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.018942356
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169333890206700130, guid: d697873d105f86a439da9b599c3a7646, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8169333890206700131, guid: d697873d105f86a439da9b599c3a7646, type: 3}
       propertyPath: m_RootOrder

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove; 
     public float dashSpeed;
     public float dashCooldown = 5f; //timer length
-    private float dashLength = 0.5f;
+    private float dashLength = 0.1f;
     private float baseSpeed = 5f;
     public Animator animator;
     private float dashCounter; //duration of dash
