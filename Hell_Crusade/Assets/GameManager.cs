@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
    }
 
    void BackToMainMenu(){
+       
        SceneManager.LoadScene("Main Menu");
+       Destroy(GameObject.Find("Player"));
+       Destroy(GameObject.Find("PlayerHUDV1.3"));
    }
 }
