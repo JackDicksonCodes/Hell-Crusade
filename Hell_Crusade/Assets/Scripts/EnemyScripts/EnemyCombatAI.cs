@@ -6,7 +6,7 @@ public class EnemyCombatAI : MonoBehaviour
 {
 
     public bool isInCombat {get; set;}
-    UnityEngine.AI.NavMeshAgent agent;
+    private UnityEngine.AI.NavMeshAgent agent;
     public Transform projexit;
     private GameObject player;
     public GameObject bloodProjectile;
@@ -47,10 +47,10 @@ public class EnemyCombatAI : MonoBehaviour
 
     private void FixedUpdate() {
         differenceInX = player.transform.position.x - gameObject.transform.position.x;
-        if(differenceInX > 1){
+        if(differenceInX > 1 && isInCombat){
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if(differenceInX < -1){
+        else if(differenceInX < -1 && isInCombat){
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else{

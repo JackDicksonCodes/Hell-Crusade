@@ -9,6 +9,8 @@ public class EnemyIdleAi : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     public bool isPatroling;
     public bool patrolStart;
+    private float differenceInX;
+    private float previousX;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class EnemyIdleAi : MonoBehaviour
         GotoNextPoint();
         isPatroling = true;
         patrolStart = false;
+        previousX = 0;
     }
 
     void GotoNextPoint(){
@@ -46,5 +49,22 @@ public class EnemyIdleAi : MonoBehaviour
                 GotoNextPoint();
             }
         }
+    }
+
+    private void FixedUpdate() {
+        if(points.Count != 0 && isPatroling){
+            differenceInX = previousX - gameObject.transform.position.x;
+            if(differenceInX > 0.2){
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if(differenceInX < -0.2 && isPatroling){
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else{
+                return;
+            }
+            previousX = gameObject.transform.position.x;
+        }
+        
     }
 }

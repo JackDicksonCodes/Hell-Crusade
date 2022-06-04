@@ -12,6 +12,7 @@ public class EnemyDetection : MonoBehaviour
     private bool aiSwitch;
     private EnemyCombatAI combatAi;
     private EnemyIdleAi idleAi;
+    private UnityEngine.AI.NavMeshAgent agent;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class EnemyDetection : MonoBehaviour
         mask = LayerMask.GetMask("Player");
         combatAi = gameObject.GetComponent<EnemyCombatAI>();
         idleAi = gameObject.GetComponent<EnemyIdleAi>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
        
     }
 
@@ -45,13 +47,17 @@ public class EnemyDetection : MonoBehaviour
     }
 
     public void ChangeToCombat(){
+        agent.ResetPath();
         combatAi.isInCombat = true;
         idleAi.isPatroling = false;
+        
     }
 
     public void ChangeToIdle(){
+        agent.ResetPath();
         combatAi.isInCombat = false;
         idleAi.isPatroling = true;
+       
     }
 
    

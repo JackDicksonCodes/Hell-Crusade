@@ -31980,6 +31980,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkullHorror
       objectReference: {fileID: 0}
+    - target: {fileID: 6774089038374663185, guid: 78cba1d3c51958a4f889e5d8bf9bf18e, type: 3}
+      propertyPath: idleSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774089038374663187, guid: 78cba1d3c51958a4f889e5d8bf9bf18e, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6774089038374663198, guid: 78cba1d3c51958a4f889e5d8bf9bf18e, type: 3}
       propertyPath: door
       value: 

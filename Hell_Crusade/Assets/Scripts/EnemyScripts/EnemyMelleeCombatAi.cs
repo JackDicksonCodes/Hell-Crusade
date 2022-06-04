@@ -43,10 +43,10 @@ public class EnemyMelleeCombatAi : MonoBehaviour
 
     private void FixedUpdate() {
         differenceInX = player.transform.position.x - gameObject.transform.position.x;
-        if(differenceInX > 1){
+        if(differenceInX > 1 && isInCombat){
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if(differenceInX < -1){
+        else if(differenceInX < -1 && isInCombat){
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else{
