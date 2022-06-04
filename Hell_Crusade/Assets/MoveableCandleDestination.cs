@@ -11,6 +11,7 @@ public class MoveableCandleDestination : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody2D>().isKinematic =true;
             other.gameObject.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1.2f);
             GetComponent<BoxCollider2D>().enabled = false;
+            other.gameObject.GetComponent<MovableCandleBehaviour>().active = false;
         }
     }
     
