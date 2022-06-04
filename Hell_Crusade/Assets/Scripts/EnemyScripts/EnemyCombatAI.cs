@@ -17,6 +17,7 @@ public class EnemyCombatAI : MonoBehaviour
     private Vector3 rayDir;
     public float idleSpeed;
     public float combatSpeed;
+    private float differenceInX;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +43,20 @@ public class EnemyCombatAI : MonoBehaviour
             fight();
             
         }
-        
     }
 
+    private void FixedUpdate() {
+        differenceInX = player.transform.position.x - gameObject.transform.position.x;
+        if(differenceInX > 1){
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(differenceInX < -1){
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else{
+            return;
+        }
+    }
     
 
     private void fight(){
@@ -73,6 +85,7 @@ public class EnemyCombatAI : MonoBehaviour
         {
             agent.isStopped = false;
             agent.destination = player.transform.position;
+            
            
         }
         else{
