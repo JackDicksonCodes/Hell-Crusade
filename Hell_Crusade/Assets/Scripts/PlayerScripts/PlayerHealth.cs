@@ -62,10 +62,12 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth > maxHealth){
             currentHealth = maxHealth;
         }
+        healthBar.SetHealth(currentHealth);
     }
 
     public void increaseMaxHealth(int increaseAmount){
         maxHealth += increaseAmount;
+        healthBar.MaxHealth(maxHealth);
         heal(increaseAmount);
 
     }
