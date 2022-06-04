@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class DoorBehaviour : MonoBehaviour
 {
-    public List<GameObject> enemies;
+    public List<GameObject> conditionals;
     
 
+
+   
     public void removeEnemy(GameObject enemy){
-        enemies.Remove(enemy);
-        if(enemies.Count == 0)
-        {
+        conditionals.Remove(enemy);
+        if(conditionals.Count == 0){
             Destroy(gameObject);
         }
+        
     }
 }

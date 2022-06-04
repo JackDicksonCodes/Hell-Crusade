@@ -11,11 +11,13 @@ public class MeleeEnemyScript : MonoBehaviour
     private PlayerGold playerGold;
     public AudioSource enemySounds;
     public AudioClip enemyScream;
+    public bool isAlive;
 
     void Start()
     {
         player = GameObject.Find("Player");
         playerGold = player.GetComponent<PlayerGold>();
+        isAlive = true;
     }
 
     // Update is called once per frame
@@ -39,10 +41,11 @@ public class MeleeEnemyScript : MonoBehaviour
         
     }
 
-    private void OnDestroy() 
-    {
-        if(FindObjectOfType<DoorBehaviour>()){
-            FindObjectOfType<DoorBehaviour>().removeEnemy(gameObject);
-        }
-    }
+    // private void OnDestroy() 
+    // {
+    //     isAlive = false;
+    //     if(FindObjectOfType<DoorBehaviour>()){
+    //         FindObjectOfType<DoorBehaviour>().removeEnemy(gameObject);
+    //     }
+    // }
 }

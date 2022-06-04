@@ -11,11 +11,15 @@ public class EnemyScript : MonoBehaviour
     private PlayerGold playerGold;
     public AudioSource enemySounds;
     public AudioClip enemyScream;
+    public GameObject door;
+    private GameObject enemy;
 
     void Start()
     {
         player = GameObject.Find("Player");
         playerGold = player.GetComponent<PlayerGold>();
+        enemy = gameObject;
+       
     }
 
     // Update is called once per frame
@@ -33,16 +37,16 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(col.gameObject);
             health -= 1;
-            FindObjectOfType<EnemyDetection>().ChangeToCombat();
             enemySounds.PlayOneShot(enemyScream);
         }
         
     }
 
+
     private void OnDestroy() 
     {
-        if(FindObjectOfType<DoorBehaviour>()){
-            FindObjectOfType<DoorBehaviour>().removeEnemy(gameObject);
+        if(door){
+            door.GetComponent<DoorBehaviour>().removeEnemy(gameObject);
         }
     }
 }

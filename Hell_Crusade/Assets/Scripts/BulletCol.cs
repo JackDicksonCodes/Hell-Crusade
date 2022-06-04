@@ -21,5 +21,9 @@ public class BulletCol : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(col.gameObject.tag.Equals("Target")){
+            Destroy(gameObject);
+            Destroy(col.gameObject);
+        }
     }
 }
