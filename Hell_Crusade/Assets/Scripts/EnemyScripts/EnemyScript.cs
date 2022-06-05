@@ -12,13 +12,13 @@ public class EnemyScript : MonoBehaviour
     public AudioSource enemySounds;
     public AudioClip enemyScream;
     public GameObject door;
-    private GameObject enemy;
+    
 
     void Start()
     {
         player = GameObject.Find("Player");
         playerGold = player.GetComponent<PlayerGold>();
-        enemy = gameObject;
+        
        
     }
 
