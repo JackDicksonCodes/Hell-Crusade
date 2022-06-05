@@ -39,7 +39,7 @@ public class ExplodingEnemyScript : MonoBehaviour
             Destroy(col.gameObject);
             health -= 1;
             FindObjectOfType<ExplosionEnemyDetection>().ChangeToCombat();
-            enemySounds.PlayOneShot(enemyScream);
+            AudioSource.PlayClipAtPoint(enemyScream, transform.position);
         }
     }
     public int getHealth(){

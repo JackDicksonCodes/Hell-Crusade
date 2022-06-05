@@ -43,7 +43,7 @@ public class EnemyScript : MonoBehaviour
             else if(FindObjectOfType<EnemyDetection>()){
                 FindObjectOfType<EnemyDetection>().ChangeToCombat();
             }
-            enemySounds.PlayOneShot(enemyScream);
+            AudioSource.PlayClipAtPoint(enemyScream, transform.position);
         }
         
     }
