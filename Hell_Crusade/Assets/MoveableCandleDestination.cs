@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MoveableCandleDestination : MonoBehaviour
 {
-    
+    public GameObject door;
+
     private void OnTriggerStay2D(Collider2D other) {
         if(other.gameObject.tag.Equals("Candle")){
             other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -12,6 +13,9 @@ public class MoveableCandleDestination : MonoBehaviour
             other.gameObject.transform.position = new Vector2(this.transform.position.x, this.transform.position.y + 1.2f);
             GetComponent<BoxCollider2D>().enabled = false;
             other.gameObject.GetComponent<MovableCandleBehaviour>().active = false;
+            if(door){
+                door.GetComponent<DoorBehaviour>().removeEnemy(gameObject);
+                }
         }
     }
     

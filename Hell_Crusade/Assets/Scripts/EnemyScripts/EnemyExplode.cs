@@ -13,6 +13,7 @@ public class EnemyExplode : MonoBehaviour
 
     private float distance;
     private Vector3 rayDir;
+    public GameObject door;
 
     // public int explosionDamage;
     public float triggerRange; //range before enemy stops and explodes
@@ -61,4 +62,12 @@ public class EnemyExplode : MonoBehaviour
     public void spawnExplosion(){
         GameObject explosion = Instantiate(explosionObject, explosionOrigin.position, explosionOrigin.rotation);
     }
+
+        private void OnDestroy() 
+    {
+        if(door){
+            door.GetComponent<DoorBehaviour>().removeEnemy(gameObject);
+        }
+    }
+
 }
