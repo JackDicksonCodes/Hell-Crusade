@@ -38,6 +38,7 @@ public class EnemyCombatAI : MonoBehaviour
             return;
         }
         else{
+            agent.isStopped = true;
             agent.speed = combatSpeed;
             move();
             fight();

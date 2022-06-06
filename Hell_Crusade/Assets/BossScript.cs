@@ -43,10 +43,12 @@ public class BossScript : MonoBehaviour
                     if(phase == 0){
                         phase += 1;
                         animator.SetInteger("phaseCounter", 1);
+                        GetComponent<BossPhase1Behaviour>().phase1Active = false;
                         StartCoroutine(EndOfPhase1(5.0f));
                         }
                     if(phase == 2){
                         animator.SetInteger("phaseCounter", 3);
+                        GetComponent<BossPhase2Behaviour>().phase2Active = false;
                         StartCoroutine(EndOfBossFight(5.0f));
                     }
                 }
@@ -64,6 +66,7 @@ IEnumerator EndOfPhase1(float wait)
         phase += 1;
         animator.SetInteger("phaseCounter", 2);
         health = 2;
+        GetComponent<BossPhase2Behaviour>().phase2Active = true;
     
     }
 IEnumerator EndOfBossFight(float wait){

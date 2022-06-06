@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public bool onFire;
     public float fireDuration;
     private float fireTick = 1f;
-    [SerializeField] private Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbody;
     
 
     //This is for a health bar that appears on the UI
