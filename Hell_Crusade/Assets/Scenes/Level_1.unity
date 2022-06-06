@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0faa361f72252e144ab4fc43e1fbb778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 1374744972}
 --- !u!4 &109996688
 Transform:
   m_ObjectHideFlags: 0
@@ -211,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2297275489005836976, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2297275489005836976, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,6 +254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2297275489005836977, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1374744972}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
 --- !u!114 &979811394 stripped
@@ -399,7 +404,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3536658320189340892, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3536658320189340892, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,7 +509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2813509557770914852, guid: cf98f8f0e1cf84d56827a49900815f72, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2813509557770914852, guid: cf98f8f0e1cf84d56827a49900815f72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9828,12 +9833,25 @@ PrefabInstance:
       propertyPath: conditionals.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6087140911825458301, guid: 87655c8d047494f529e5dea9ca6c702f, type: 3}
+      propertyPath: conditionals.Array.data[0]
+      value: 
+      objectReference: {fileID: 109996686}
+    - target: {fileID: 6087140911825458301, guid: 87655c8d047494f529e5dea9ca6c702f, type: 3}
+      propertyPath: conditionals.Array.data[1]
+      value: 
+      objectReference: {fileID: 1799794364}
     - target: {fileID: 6087140911825458303, guid: 87655c8d047494f529e5dea9ca6c702f, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: Door Room1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87655c8d047494f529e5dea9ca6c702f, type: 3}
+--- !u!1 &1374744972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6087140911825458303, guid: 87655c8d047494f529e5dea9ca6c702f, type: 3}
+  m_PrefabInstance: {fileID: 1374744971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1447988214
 GameObject:
   m_ObjectHideFlags: 0
@@ -10067,7 +10085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2297275489005836976, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2297275489005836976, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
       propertyPath: m_LocalScale.z
@@ -10113,6 +10131,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2297275489005836977, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1374744972}
     - target: {fileID: 2297275489005836977, guid: 3086c6632e1714feb999153f55fe2b47, type: 3}
       propertyPath: active
       value: 0
@@ -10171,6 +10193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0faa361f72252e144ab4fc43e1fbb778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 1374744972}
 --- !u!4 &1799794366
 Transform:
   m_ObjectHideFlags: 0
