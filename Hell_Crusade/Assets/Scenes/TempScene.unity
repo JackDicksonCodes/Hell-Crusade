@@ -439,10 +439,11 @@ MonoBehaviour:
   - {fileID: 1476204431}
   - {fileID: 35901815}
   - {fileID: 945387914}
-  projectileForce: 10
+  projectileForce: 12
   projexit: {fileID: 279798327}
   bloodProjectile: {fileID: 7478376160872979506, guid: 93c722725787c59479e436268efa2f20, type: 3}
   coolDown: 3
+  specialProjectileForce: 140
 --- !u!195 &89720444
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverrideArea: 1
-  m_Area: 1
+  m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
 --- !u!483693784 &283486038
@@ -9747,11 +9748,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2261873343564520580, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.21
+      value: 37.87
       objectReference: {fileID: 0}
     - target: {fileID: 2261873343564520580, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.95
+      value: -19.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261873343564520580, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999954
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261873343564520580, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0030400504
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261873343564520580, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.348
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f232b19e1aa256478fdb1951e7a681b, type: 3}
