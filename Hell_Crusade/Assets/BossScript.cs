@@ -52,7 +52,7 @@ public class BossScript : MonoBehaviour
             Destroy(col.gameObject);
             if(phase != 1){
                 health -= 1;
-                enemySounds.PlayOneShot(enemyScream);
+                // enemySounds.PlayOneShot(enemyScream);
                 if(health == 0){
                     if(phase == 0){
                         phase += 1;
@@ -64,7 +64,7 @@ public class BossScript : MonoBehaviour
                         animator.SetInteger("phaseCounter", 3);
                         GetComponent<BossPhase2Behaviour>().phase2Active = false;
                         GetComponent<BossPhase1Behaviour>().phase1Active = false;
-                        StartCoroutine(EndOfBossFight(5.0f));
+                        StartCoroutine(EndOfBossFight(10.0f));
                     }
                 }
             }

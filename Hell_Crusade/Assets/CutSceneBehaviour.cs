@@ -145,6 +145,7 @@ public class CutSceneBehaviour : MonoBehaviour
             else{
                 cam.GetComponent<FollowPlayer>().changeFollow(player);
                 i ++;
+                Destroy(gameObject);
             }
         }
     }
