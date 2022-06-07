@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private Camera cam;
+    [SerializeField] private Camera cam;
     Rigidbody2D body;
     Vector2 movement;
     Vector2 mouse;
@@ -29,13 +29,15 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         speed = baseSpeed;
         canMove = true;
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        // cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     
     }
 
     // Update is called once per frame
     void Update()
     {
+        cam = Camera.main;
+
         if(canMove){
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
             mouse = cam.ScreenToWorldPoint(Input.mousePosition);
             
             animator.SetFloat("Speed", speed);
+
         
 
         //This is the dash ability

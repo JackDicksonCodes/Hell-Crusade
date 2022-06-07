@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
 
     public void playGame(){
-        SceneManager.LoadScene("TempScene");
+        SceneManager.LoadScene("Level_1");
     }
 
     public void exitGame(){
