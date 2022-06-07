@@ -26,12 +26,19 @@ public class CutSceneBehaviour : MonoBehaviour
         if(boss.GetComponent<BossScript>().health == 4){
             cam.GetComponent<FollowPlayer>().changeFollow(player);
             boss.GetComponent<BossPhase1Behaviour>().StartPhase1();
+            player.GetComponent<PlayerMovement>().canMove = true;
+            player.GetComponent<PlayerShooting>().canShoot = true;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag.Equals("Player")){
             GetComponent<BoxCollider2D>().enabled = false; 
+            other.gameObject.GetComponent<PlayerMovement>().canMove = false;
+            other.gameObject.GetComponent<PlayerShooting>().canShoot = false;
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(DoorSealedSequence());
         }
     }
