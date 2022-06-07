@@ -9,6 +9,7 @@ TagManager:
   - PitFall
   - Candle
   - Target
+  - Pool
   layers:
   - Default
   - TransparentFX
