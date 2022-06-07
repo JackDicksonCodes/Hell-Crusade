@@ -10,6 +10,10 @@ public class FollowPlayer : MonoBehaviour
    public Vector2 max;
    public Vector2 min;
    public float smoothing;
+
+   void Start() {
+      player = GameObject.Find("Player").transform;
+   }
     
    void LateUpdate(){
 
