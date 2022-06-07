@@ -33,7 +33,7 @@ public class BossScript : MonoBehaviour
     IEnumerator HealthTrickRoutine(){
         int i = 0;
         while(i < 4){
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.3f);
             health += 1;
             i ++;
         }
@@ -63,6 +63,7 @@ public class BossScript : MonoBehaviour
                     if(phase == 2){
                         animator.SetInteger("phaseCounter", 3);
                         GetComponent<BossPhase2Behaviour>().phase2Active = false;
+                        GetComponent<BossPhase1Behaviour>().phase1Active = false;
                         StartCoroutine(EndOfBossFight(5.0f));
                     }
                 }
@@ -79,7 +80,6 @@ IEnumerator EndOfPhase1(float wait)
         
         phase += 1;
         animator.SetInteger("phaseCounter", 2);
-        health = 2;
         GetComponent<BossPhase2Behaviour>().phase2Active = true;
     
     }

@@ -10,6 +10,10 @@ public class CutSceneBehaviour : MonoBehaviour
     public Transform door1Spawn;
     public Transform door2Spawn;
     public GameObject door;
+    private bool rdyForPhase1;
+    private bool rdyForPhase2;
+    private bool phase2Start;
+
     
     // Start is called before the first frame update
     void Start()
@@ -23,13 +27,14 @@ public class CutSceneBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(boss.GetComponent<BossScript>().health == 4){
-            cam.GetComponent<FollowPlayer>().changeFollow(player);
-            boss.GetComponent<BossPhase1Behaviour>().StartPhase1();
-            player.GetComponent<PlayerMovement>().canMove = true;
-            player.GetComponent<PlayerShooting>().canShoot = true;
-            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        if(boss.GetComponent<BossScript>().health == 4 && rdyForPhase1){
+            PhaseOneStart();
+        }
+        else if(boss.GetComponent<BossScript>().health == 0 && rdyForPhase2){
+            PhaseTwoTrigger();
+        }
+        else if(boss.GetComponent<BossScript>().health == 4 && phase2Start){
+            PhaseTwoStart();
         }
     }
 
@@ -39,8 +44,21 @@ public class CutSceneBehaviour : MonoBehaviour
             other.gameObject.GetComponent<PlayerMovement>().canMove = false;
             other.gameObject.GetComponent<PlayerShooting>().canShoot = false;
             player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            rdyForPhase1 = true;
+            
             StartCoroutine(DoorSealedSequence());
         }
+
+    }
+
+    private void PhaseTwoTrigger(){
+        player.GetComponent<PlayerMovement>().canMove = false;
+        player.GetComponent<PlayerShooting>().canShoot = false;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        cam.GetComponent<FollowPlayer>().changeFollow(boss);
+        boss.GetComponent<BossScript>().HealthTrick();
+        rdyForPhase2 = false;
+        phase2Start = true;
     }
 
     IEnumerator DoorSealedSequence(){
@@ -61,5 +79,29 @@ public class CutSceneBehaviour : MonoBehaviour
             }
 
         }
+
+    }
+
+    private void PhaseOneStart()
+    {
+        cam.GetComponent<FollowPlayer>().changeFollow(player);
+        boss.GetComponent<BossPhase1Behaviour>().StartPhase1();
+        player.GetComponent<PlayerMovement>().canMove = true;
+        player.GetComponent<PlayerShooting>().canShoot = true;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        player.GetComponent< Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        rdyForPhase1 = false;
+        rdyForPhase2 = true;
+    }
+
+    private void PhaseTwoStart(){
+        cam.GetComponent<FollowPlayer>().changeFollow(player);
+        player.GetComponent<PlayerMovement>().canMove = true;
+        player.GetComponent<PlayerShooting>().canShoot = true;
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        player.GetComponent< Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        rdyForPhase1 = false;
+        rdyForPhase2 = false;
+        phase2Start = false;
     }
 }
