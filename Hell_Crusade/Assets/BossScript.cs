@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossScript : MonoBehaviour
 {
-    public int health = 2;
+    public int health;
     public int goldDrop;
 
     private GameObject player;
@@ -22,7 +22,21 @@ public class BossScript : MonoBehaviour
         playerGold = player.GetComponent<PlayerGold>();
         animator = GetComponent<Animator>();
         phase = 0;
+        health = 0;
        
+    }
+
+    public void HealthTrick(){
+        StartCoroutine(HealthTrickRoutine());
+    }
+
+    IEnumerator HealthTrickRoutine(){
+        int i = 0;
+        while(i < 4){
+            yield return new WaitForSeconds(0.5f);
+            health += 1;
+            i ++;
+        }
     }
 
     // Update is called once per frame

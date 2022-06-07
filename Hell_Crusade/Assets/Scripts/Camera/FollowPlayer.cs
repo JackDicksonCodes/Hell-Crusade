@@ -24,6 +24,12 @@ public class FollowPlayer : MonoBehaviour
 
    }
 
+   public void changeFollow(GameObject otherObj){
+
+      player = otherObj.transform;
+
+   }
+
    
 
 

@@ -26,7 +26,6 @@ public class BossPhase2Behaviour : MonoBehaviour
         phase2Active = false;
         player = GameObject.Find("Player");
         destPoint = 0;
-        GotoNextPoint();
         destPoint = 0;
         agent.updateUpAxis = false;
         agent.updateRotation = false;
@@ -43,6 +42,11 @@ public class BossPhase2Behaviour : MonoBehaviour
                 }
             fight2();
         }
+    }
+
+    void StartPhase2(){
+        GotoNextPoint();
+        phase2Active = true;
     }
 
     void GotoNextPoint(){

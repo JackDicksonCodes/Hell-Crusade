@@ -23,10 +23,9 @@ public class BossPhase1Behaviour : MonoBehaviour
     void Start()
     {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        phase1Active = true;
+        phase1Active = false;
         player = GameObject.Find("Player");
         destPoint = 0;
-        GotoNextPoint();
         destPoint = 0;
         agent.updateUpAxis = false;
         agent.updateRotation = false;
@@ -43,6 +42,11 @@ public class BossPhase1Behaviour : MonoBehaviour
                 }
             fight();
         }
+    }
+
+    public void StartPhase1(){
+        GotoNextPoint();
+        phase1Active = true;
     }
 
     void GotoNextPoint(){
