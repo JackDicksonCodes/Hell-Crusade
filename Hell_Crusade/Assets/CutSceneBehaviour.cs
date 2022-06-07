@@ -7,6 +7,9 @@ public class CutSceneBehaviour : MonoBehaviour
     private Camera cam;
     private GameObject boss;
     private GameObject player;
+    public Transform door1Spawn;
+    public Transform door2Spawn;
+    public GameObject door;
     
     // Start is called before the first frame update
     void Start()
@@ -28,9 +31,28 @@ public class CutSceneBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag.Equals("Player")){
-            cam.GetComponent<FollowPlayer>().changeFollow(boss);
-            boss.GetComponent<BossScript>().HealthTrick();
             GetComponent<BoxCollider2D>().enabled = false; 
+            StartCoroutine(DoorSealedSequence());
+        }
+    }
+
+    IEnumerator DoorSealedSequence(){
+        int i = 0;
+        while(i < 2){
+            yield return new WaitForSeconds(1f);
+            if(i == 0)
+            {
+                GameObject door1 = Instantiate(door, door1Spawn.position, Quaternion.identity);
+                i++;
+            }
+            else
+            {
+                GameObject door2 = Instantiate(door, door2Spawn.position, Quaternion.identity);
+                cam.GetComponent<FollowPlayer>().changeFollow(boss);
+                boss.GetComponent<BossScript>().HealthTrick();
+                i++;
+            }
+
         }
     }
 }
