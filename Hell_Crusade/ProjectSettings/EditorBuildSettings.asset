@@ -14,10 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossLevel.unity
     guid: bf85e68729d84c54c9633a98c931a3e8
-  - enabled: 1
-    path: Assets/Scenes/Development Scenes/new room.unity
-    guid: 18401192de180dd4aa51ca7d726b272b
-  - enabled: 1
-    path: Assets/Scenes/Development Scenes/Pause Test.unity
-    guid: 47e57d8ecb8dc8341a8a21e576c179bb
   m_configObjects: {}
