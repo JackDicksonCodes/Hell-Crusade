@@ -2018,6 +2018,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3536658320189340892, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
   m_PrefabInstance: {fileID: 1079267487}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &979811407 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3536658320225299072, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
+  m_PrefabInstance: {fileID: 1079267487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1023320470
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,6 +3052,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3536658320225299072, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
+      propertyPath: m_Pitch
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536658320225299072, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 813731686720220989, guid: 4fd9eb77b4f2a364786a5128e116be27, type: 2}
@@ -3058,6 +3067,14 @@ PrefabInstance:
       propertyPath: rigidbody
       value: 
       objectReference: {fileID: 979811395}
+    - target: {fileID: 3536658320225299077, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
+      propertyPath: playerDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: acbbaad0fd8273b4ab5767a23cfa790d, type: 3}
+    - target: {fileID: 3536658320225299077, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
+      propertyPath: playerSounds
+      value: 
+      objectReference: {fileID: 979811407}
     - target: {fileID: 3536658320225299079, guid: aad4fb9573245734985bf7ae24034e58, type: 3}
       propertyPath: goldUI
       value: 

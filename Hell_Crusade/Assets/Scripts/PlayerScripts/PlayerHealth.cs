@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     public float fireDuration;
     private float fireTick = 1f;
     private Rigidbody2D rigidbody;
+
+    public AudioSource playerSounds;
+    public AudioClip playerDeath;
     
 
     //This is for a health bar that appears on the UI
@@ -21,6 +24,8 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if(currentHealth <= 0){
             animator.SetBool("Death", true);
+            playerSounds.PlayOneShot(playerDeath);
+            onFire = false;
             FindObjectOfType<PlayerMovement>().canMove = false;
             FindObjectOfType<PlayerShooting>().canShoot = false;
             rigidbody = GetComponent<Rigidbody2D>();
@@ -30,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     void FixedUpdate(){
         if(currentHealth <= 0){
-        animator.SetBool("Death", true);
+        // animator.SetBool("Death", true);
         rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         StartCoroutine(GameOverRoutine());
         }
