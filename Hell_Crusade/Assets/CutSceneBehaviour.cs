@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CutSceneBehaviour : MonoBehaviour
 {
     private Camera cam;
+    public GameObject secreDoor;
+    public GameObject pitfall;
     private GameObject boss;
     private GameObject player;
     public Transform door1Spawn;
@@ -13,6 +16,7 @@ public class CutSceneBehaviour : MonoBehaviour
     private bool rdyForPhase1;
     private bool rdyForPhase2;
     private bool phase2Start;
+    private bool endPhase;
 
     
     // Start is called before the first frame update
@@ -35,6 +39,9 @@ public class CutSceneBehaviour : MonoBehaviour
         }
         else if(boss.GetComponent<BossScript>().health == 4 && phase2Start){
             PhaseTwoStart();
+        }
+        else if(boss.GetComponent<BossScript>().health == 0 && endPhase){
+            end();
         }
     }
 
@@ -100,8 +107,47 @@ public class CutSceneBehaviour : MonoBehaviour
         player.GetComponent<PlayerShooting>().canShoot = true;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         player.GetComponent< Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-        rdyForPhase1 = false;
-        rdyForPhase2 = false;
         phase2Start = false;
+        endPhase = true;
     }
+
+    private void end(){
+        cam.GetComponent<FollowPlayer>().changeFollow(boss);
+        StartCoroutine(pitfallSequence());
+        
+    }
+
+    IEnumerator pitfallSequence(){
+        int i = 0;
+        while(i < 2){
+            yield return new WaitForSeconds(2f);
+            if(i == 0){
+                pitfall.GetComponent<TilemapCollider2D>().enabled = false;
+                pitfall.GetComponent<TilemapRenderer>().enabled = false;
+                i ++;
+            }
+            else{
+                cam.GetComponent<FollowPlayer>().changeFollow(secreDoor);
+                StartCoroutine(SecretDoorOpen());
+                i ++;
+            }
+        }
+    }
+
+    IEnumerator SecretDoorOpen(){
+        int i = 0;
+        while(i < 2){
+            yield return new WaitForSeconds(2f);
+            if( i == 0){
+                secreDoor.GetComponent<TilemapRenderer>().enabled = true;
+                i ++;
+            }
+            else{
+                cam.GetComponent<FollowPlayer>().changeFollow(player);
+                i ++;
+            }
+        }
+    }
+
+    
 }
