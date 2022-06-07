@@ -20,6 +20,9 @@ public class EnemyIdleAi : MonoBehaviour
         isPatroling = true;
         patrolStart = false;
         previousX = 0;
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
+
     }
 
     void GotoNextPoint(){
