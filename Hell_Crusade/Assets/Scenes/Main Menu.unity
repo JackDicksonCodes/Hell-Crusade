@@ -1897,6 +1897,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 4fd9eb77b4f2a364786a5128e116be27, type: 2}
+  volumeMaster: {fileID: 1315186230}
+  volumeMusic: {fileID: 1863745653}
+  volumeSFX: {fileID: 1723348528}
 --- !u!1 &1123763387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,7 +2253,7 @@ GameObject:
   - component: {fileID: 1315186229}
   - component: {fileID: 1315186230}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Slider Master
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2932,7 +2935,7 @@ GameObject:
   - component: {fileID: 1723348527}
   - component: {fileID: 1723348528}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Slider SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3170,7 +3173,7 @@ GameObject:
   - component: {fileID: 1863745652}
   - component: {fileID: 1863745653}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Slider Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

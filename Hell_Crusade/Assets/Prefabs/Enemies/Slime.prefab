@@ -161,6 +161,7 @@ MonoBehaviour:
   goldDrop: 2
   enemySounds: {fileID: 697204181670726931}
   enemyScream: {fileID: 8300000, guid: 3c91c576fc3cc524bae7a1a7a42a82de, type: 3}
+  door: {fileID: 0}
 --- !u!70 &6012951046764912770
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
