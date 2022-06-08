@@ -1362,10 +1362,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target Rm2 3
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 377442078}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd63af1a3a029478788721995434a3b3, type: 3}
 --- !u!4 &392972320 stripped
@@ -1834,7 +1830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &528829429
 Transform:
   m_ObjectHideFlags: 0
@@ -2012,10 +2008,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target Rm2 2
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 2108376220}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd63af1a3a029478788721995434a3b3, type: 3}
 --- !u!1 &611985044 stripped
@@ -42571,10 +42563,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target Rm2 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 2108376220}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd63af1a3a029478788721995434a3b3, type: 3}
 --- !u!1 &1412617586 stripped
@@ -43102,10 +43090,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target Rm2 4
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 377442078}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd63af1a3a029478788721995434a3b3, type: 3}
 --- !u!4 &1522513210 stripped
