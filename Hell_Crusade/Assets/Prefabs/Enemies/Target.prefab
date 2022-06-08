@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3930909543298965407}
   - component: {fileID: 4026026613373213717}
   - component: {fileID: 4026026613373213716}
-  - component: {fileID: 4026026613373213713}
   - component: {fileID: -2257119057591110498}
+  - component: {fileID: 50511942472630226}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -146,23 +146,6 @@ CircleCollider2D:
   m_Offset: {x: 0.02914711, y: 0.10431233}
   serializedVersion: 2
   m_Radius: 0.5351104
---- !u!114 &4026026613373213713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4025073076714899327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08a795e0552e82a4e9826414901490f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  goldDrop: 0
-  enemySounds: {fileID: -2257119057591110498}
-  enemyScream: {fileID: 8300000, guid: f743aa7eb0277ac4faea6af1be9cb73a, type: 3}
-  door: {fileID: 0}
 --- !u!82 &-2257119057591110498
 AudioSource:
   m_ObjectHideFlags: 0
@@ -259,3 +242,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &50511942472630226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025073076714899327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca7bca66b994498a81380c5187dfc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 0}
+  enemySounds: {fileID: 0}
+  enemyScream: {fileID: 0}

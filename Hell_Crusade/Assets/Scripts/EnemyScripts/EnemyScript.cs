@@ -37,12 +37,10 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(col.gameObject);
             health -= 1;
-            if(FindObjectOfType<MeleeDetection>()){
-                FindObjectOfType<MeleeDetection>().ChangeToCombat();
-            }
-            else if(FindObjectOfType<EnemyDetection>()){
-                FindObjectOfType<EnemyDetection>().ChangeToCombat();
-            }
+            
+          
+            GetComponent<EnemyDetection>().ChangeToCombat();
+            
             AudioSource.PlayClipAtPoint(enemyScream, transform.position);
         }
         
