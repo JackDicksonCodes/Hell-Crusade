@@ -14,6 +14,9 @@ public class BossScript : MonoBehaviour
     public GameObject door;
     private Animator animator;
     private int phase;
+
+    public BossHealthUI bossHealthUI;
+    public GameObject bossHealthBar;
     
 
     void Start()
@@ -35,6 +38,7 @@ public class BossScript : MonoBehaviour
         while(i < 4){
             yield return new WaitForSeconds(1.3f);
             health += 1;
+            bossHealthUI.SetHealth(health);
             i ++;
         }
     }
@@ -52,6 +56,7 @@ public class BossScript : MonoBehaviour
             Destroy(col.gameObject);
             if(phase != 1){
                 health -= 1;
+                bossHealthUI.SetHealth(health);
                 // enemySounds.PlayOneShot(enemyScream);
                 if(health == 0){
                     if(phase == 0){
