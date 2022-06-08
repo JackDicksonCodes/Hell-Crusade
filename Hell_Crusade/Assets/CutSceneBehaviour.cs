@@ -8,6 +8,7 @@ public class CutSceneBehaviour : MonoBehaviour
     private Camera cam;
     public GameObject secreDoor;
     public GameObject pitfall;
+    public GameObject camOne;
     private GameObject boss;
     private GameObject player;
     public Transform door1Spawn;
@@ -127,7 +128,7 @@ public class CutSceneBehaviour : MonoBehaviour
                 i ++;
             }
             else{
-                cam.GetComponent<FollowPlayer>().changeFollow(secreDoor);
+                cam.GetComponent<FollowPlayer>().changeFollow(camOne);
                 StartCoroutine(SecretDoorOpen());
                 i ++;
             }
