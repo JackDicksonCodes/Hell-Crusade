@@ -141,6 +141,7 @@ public class CutSceneBehaviour : MonoBehaviour
             yield return new WaitForSeconds(2f);
             if( i == 0){
                 secreDoor.GetComponent<TilemapRenderer>().enabled = true;
+                secreDoor.GetComponent<TilemapCollider2D>().enabled = true;
                 i ++;
             }
             else{
