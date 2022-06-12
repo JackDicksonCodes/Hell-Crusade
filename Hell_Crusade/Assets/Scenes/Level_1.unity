@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29040925cf46954c8e52136c22b60ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMinMax: {x: 22.74, y: 8}
+  newMinMax: {x: 23.18, y: 6.86}
 --- !u!61 &13141847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -659,7 +659,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3789,11 +3789,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2813509557770914852, guid: cf98f8f0e1cf84d56827a49900815f72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.48
+      value: 23.18
       objectReference: {fileID: 0}
     - target: {fileID: 2813509557770914852, guid: cf98f8f0e1cf84d56827a49900815f72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.51
+      value: 6.86
       objectReference: {fileID: 0}
     - target: {fileID: 2813509557770914852, guid: cf98f8f0e1cf84d56827a49900815f72, type: 3}
       propertyPath: m_LocalPosition.z
