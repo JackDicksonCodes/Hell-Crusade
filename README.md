@@ -1,5 +1,5 @@
 # Hell-Crusade
-Made by Jack (https://github.com/JackOfDickson) and Matt (https://github.com/Matt-Matthaiou) this is our first unity project which we used to learn unity and C#
+Made by Jack (https://github.com/JackDicksonCodes) and Matt (https://github.com/Matt-Matthaiou) this is our first unity project which we used to learn unity and C#
 This was a great experience we made under a couple of weeks with very little prior knowledge of unity and we hope you enjoy checking it out!
 
 ## Playing our game!
